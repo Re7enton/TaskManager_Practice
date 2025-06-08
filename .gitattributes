@@ -1,0 +1,39 @@
+# ─────────────────────────────────────────────────────────────────
+# Android Project .gitattributes (circa 2025)
+# Place this file at the top level of your repo, alongside:
+#   settings.gradle[.kts], build.gradle[.kts], gradlew, app/, gradle/, etc.
+
+# 1) Shell scripts should always use LF (Unix-style) so they run cleanly on Linux/macOS/CI
+gradlew         text eol=lf
+gradlew.bat     text eol=crlf
+*.sh            text eol=lf
+
+# 2) Kotlin, Java, XML, JSON, YAML, Markdown, and other text-based source files:
+#    normalize to LF on disk, but Git will handle CRLF→LF on commit automatically
+*.kt            text eol=lf
+*.java          text eol=lf
+*.xml           text eol=lf
+*.gradle        text eol=lf
+*.kts           text eol=lf
+*.json          text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.md            text eol=lf
+
+# 3) Binary files—images, libraries, fonts, APKs—should never be treated as text:
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.mp4           binary
+*.jar           binary
+*.aar           binary
+*.keystore      binary
+*.so            binary
+*.db            binary
+
+# 4) Automatically normalize any other “unknown” text file:
+*               text=auto
+
+# 5) Prevent Git from converting line endings in files you want untouched:
+*.lock          -text
